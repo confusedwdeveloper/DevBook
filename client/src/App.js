@@ -2,9 +2,11 @@ import React, { Fragment, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Landing from "./components/layout/Landing";
 import Navbar from "./components/layout/Navbar";
+import Dashboard from "./components/dashboard/Dashboard";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Alert from "./components/layout/Alert";
+import PrivateRoute from "./components/routing/PrivateRoute";
 import { loadUser } from "./actions/auth";
 import setAuthToken from "./utils/setAuthToken";
 
@@ -38,6 +40,7 @@ function App() {
               <Route exact path="/login">
                 <Login />
               </Route>
+              <PrivateRoute exact component={Dashboard} to="/dashboard" />
             </Switch>
           </section>
         </Fragment>
