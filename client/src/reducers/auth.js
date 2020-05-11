@@ -5,6 +5,7 @@ import {
   AUTH_ERROR,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
+  LOGOUT,
 } from "../actions/types";
 
 const initialState = {
@@ -38,7 +39,8 @@ export default function auth(state = initialState, { type, payload }) {
     }
     case REGISTER_FAIL:
     case AUTH_ERROR:
-    case LOGIN_FAIL: {
+    case LOGIN_FAIL:
+    case LOGOUT: {
       // if fail login remove token completely
       localStorage.removeItem("token");
       return {
