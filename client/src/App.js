@@ -2,11 +2,7 @@ import React, { Fragment, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Landing from "./components/layout/Landing";
 import Navbar from "./components/layout/Navbar";
-import Dashboard from "./components/dashboard/Dashboard";
-import Login from "./components/auth/Login";
-import Register from "./components/auth/Register";
-import Alert from "./components/layout/Alert";
-import PrivateRoute from "./components/routing/PrivateRoute";
+import Routes from "./components/routing/Routes";
 import { loadUser } from "./actions/auth";
 import setAuthToken from "./utils/setAuthToken";
 
@@ -28,21 +24,14 @@ function App() {
       <Router>
         <Fragment>
           <Navbar />
-          <Route exact path="/">
-            <Landing />
-          </Route>
-          <section className="container">
-            <Alert />
-            <Switch>
-              <Route exact path="/register">
-                <Register />
-              </Route>
-              <Route exact path="/login">
-                <Login />
-              </Route>
-              <PrivateRoute exact component={Dashboard} to="/dashboard" />
-            </Switch>
-          </section>
+          <Switch>
+            <Route exact path="/">
+              <Landing />
+            </Route>
+            <Route>
+              <Routes />
+            </Route>
+          </Switch>
         </Fragment>
       </Router>
     </Provider>
