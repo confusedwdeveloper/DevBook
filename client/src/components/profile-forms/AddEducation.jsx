@@ -99,7 +99,7 @@ const AddEducation = ({ addEducation, history }) => {
               checked={current}
               onChange={handleCheckbox}
             />{" "}
-            Current Job
+            Current
           </label>
         </div>
         <div className="form-group">
