@@ -5,6 +5,7 @@ import {
   UPDATE_PROFILE,
   GET_PROFILES,
   GET_REPOS,
+  RESET_PROFILE_LOADING,
 } from "../actions/types";
 
 const initialState = {
@@ -23,6 +24,12 @@ export default function profile(state = initialState, { type, payload }) {
         ...state,
         profile: payload,
         loading: false,
+      };
+    }
+    case RESET_PROFILE_LOADING: {
+      return {
+        ...state,
+        loading: true,
       };
     }
     case GET_PROFILES: {

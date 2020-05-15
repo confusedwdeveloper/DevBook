@@ -8,6 +8,7 @@ import {
   ACCOUNT_DELETED,
   GET_PROFILES,
   GET_REPOS,
+  RESET_PROFILE_LOADING,
 } from "./types";
 
 // action to get current users profile
@@ -35,6 +36,9 @@ export const getProfiles = () => async (dispatch) => {
   // clear all profile state when they go to profile list page
   // this way if they visit individual profile we can save new state
   dispatch({ type: CLEAR_PROFILE });
+
+  // reset loading to true
+  dispatch({ type: RESET_PROFILE_LOADING });
   try {
     const res = await axios.get("/api/profile");
 
@@ -257,7 +261,7 @@ export const deleteEducation = (id) => async (dispatch) => {
 export const deleteAccount = () => async (dispatch) => {
   if (window.confirm("Are you sure? This can NOT be undone!")) {
     try {
-      const res = await axios.delete("/api/profile");
+      await axios.delete("/api/profile");
 
       dispatch({ type: CLEAR_PROFILE });
       dispatch({ type: ACCOUNT_DELETED });

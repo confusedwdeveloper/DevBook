@@ -28,6 +28,7 @@ const EditProfile = ({
   const [displaySocialInputs, toggleSocialInputs] = useState(false);
 
   // load profile and send data through state
+
   useEffect(() => {
     getCurrentProfile();
 
@@ -46,7 +47,8 @@ const EditProfile = ({
       youtube: loading || !profile.social ? "" : profile.social.youtube,
       instagram: loading || !profile.social ? "" : profile.social.instagram,
     });
-  }, [loading]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loading, getCurrentProfile]);
 
   // destructure for ease of use
   const {

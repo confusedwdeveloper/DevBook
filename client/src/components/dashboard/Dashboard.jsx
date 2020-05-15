@@ -16,7 +16,7 @@ const Dashboard = ({
 }) => {
   useEffect(() => {
     getCurrentProfile();
-  }, []);
+  }, [getCurrentProfile]);
 
   const handleDeleteAccount = (e) => {
     deleteAccount();
