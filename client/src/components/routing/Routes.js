@@ -9,6 +9,7 @@ import EditProfile from "../profile-forms/EditProfile";
 import AddExperience from "../profile-forms/AddExperience";
 import AddEducation from "../profile-forms/AddEducation";
 import Profiles from "../profiles/Profiles";
+import Profile from "../profile/Profile";
 import Alert from "../layout/Alert";
 
 export default function Routes() {
@@ -25,6 +26,7 @@ export default function Routes() {
         <Route exact path="/profiles">
           <Profiles />
         </Route>
+        <Route exact path="/profile/:id" component={Profile} />
         <PrivateRoute exact component={Dashboard} path="/dashboard" />
         <PrivateRoute exact component={CreateProfile} path="/create-profile" />
         <PrivateRoute exact component={EditProfile} path="/edit-profile" />
