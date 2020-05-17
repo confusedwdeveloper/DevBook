@@ -21,6 +21,8 @@ export const getCurrentProfile = () => async (dispatch) => {
       payload: res.data,
     });
   } catch (err) {
+    dispatch({ type: CLEAR_PROFILE });
+    //so that new user that logs in after viewing profile cannot edit existing profile after registering
     dispatch({
       type: PROFILE_ERROR,
       payload: {
