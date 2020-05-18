@@ -10,6 +10,7 @@ import AddExperience from "../profile-forms/AddExperience";
 import AddEducation from "../profile-forms/AddEducation";
 import Profiles from "../profiles/Profiles";
 import Profile from "../profile/Profile";
+import Posts from "../posts/Posts";
 import Alert from "../layout/Alert";
 
 export default function Routes() {
@@ -32,6 +33,7 @@ export default function Routes() {
         <PrivateRoute exact component={EditProfile} path="/edit-profile" />
         <PrivateRoute exact component={AddExperience} path="/add-experience" />
         <PrivateRoute exact component={AddEducation} path="/add-education" />
+        <PrivateRoute exact component={Posts} path="/posts" />
       </Switch>
     </section>
   );
