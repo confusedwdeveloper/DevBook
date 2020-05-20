@@ -12,6 +12,7 @@ import Profiles from "../profiles/Profiles";
 import Profile from "../profile/Profile";
 import Posts from "../posts/Posts";
 import Post from "../post/Post";
+import NotFound from "../layout/NotFound";
 import Alert from "../layout/Alert";
 
 export default function Routes() {
@@ -36,6 +37,9 @@ export default function Routes() {
         <PrivateRoute exact component={AddEducation} path="/add-education" />
         <PrivateRoute exact component={Posts} path="/posts" />
         <PrivateRoute exact component={Post} path="/posts/:id" />
+        <Route>
+          <NotFound />
+        </Route>
       </Switch>
     </section>
   );
